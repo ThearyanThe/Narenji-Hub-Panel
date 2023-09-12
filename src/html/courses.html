@@ -95,19 +95,19 @@
       <!--name-course-->
       <div class="font-ybakh ">
         <h1 class="font-ybakhbold text-slate-400">نام دوره</h1>
-        <input class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="نام دوره " id="name-course">
+        <input  class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="نام دوره " id="course-name">
       </div>
        <!--price-course-->
        <div class="font-ybakh ">
         <h1 class="font-ybakhbold text-slate-400"> قیمت دوره</h1>
-        <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="price-course">
+        <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="course-price">
       </div>
     </div>
     <div class="">
         <!--count-course-->
         <div class="font-ybakh ">
           <h1 class="font-ybakhbold text-slate-400"> url دوره</h1>
-          <input class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3 rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="count-course">
+          <input class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3 rounded-lg  p-2" type="text" placeholder="url دوره " id="course-shortname">
         </div>
           <!--category-course-->
           <div class="font-ybakh ">
@@ -121,19 +121,19 @@
       <!--suport-->
   <div class="font-ybakh ">
     <h1 class="font-ybakhbold text-slate-400"> پشتیبانی دوره</h1>
-    <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="پشتیبانی دوره " id="price-course">
+    <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="پشتیبانی دوره " id="course-support">
       <!--description-->
       <div class="font-ybakhbold text-slate-400">
         <h1>متن</h1>
-        <textarea placeholder="پیام خود را بنویسید"  class="text-area placeholder:text-slate-400 h-[40px] text-slate-400 bg-gray-3  outline-none focus:border-b-2 focus:border-orange-1 block w-full rounded-lg p-3 pr-8 z-20" name="" id="" cols="30" rows="10"></textarea>
+        <textarea   placeholder="پیام خود را بنویسید"  class="text-area placeholder:text-slate-400 h-[40px] text-slate-400 bg-gray-3  outline-none focus:border-b-2 focus:border-orange-1 block w-full rounded-lg p-3 pr-8 z-20" name="" id="course-description" cols="30" rows="10"></textarea>
       </div>
   </div>
   <div class="">
     <!--course-image-->
     <div class="font-ybakh flex flex-col ">
       <h1 class="font-ybakhbold text-slate-400"> عکس دوره</h1>
-      <label for="file" class="text-white file-name font-ybakhbold bg-orange-1 p-2 py-3 text-xs rounded-lg text-center">انتخاب فایل</label>
-      <input type="file" id="file" class="file-input hidden" accept=".pdf, .doc, .docx, .txt">
+      <label for="course-cover" class="file-name text-white  font-ybakhbold bg-orange-1 p-2 py-3 text-xs rounded-lg text-center">انتخاب فایل</label>
+      <input type="file" id="course-cover" class="file-input hidden" >
 
       
     </div>
@@ -142,8 +142,8 @@
 <div class="flex gap-5 ">
 <!--active-->
 <div class="inline-flex items-center">
-  <label class="relative flex cursor-pointer items-center rounded-full p-3" for="html" data-ripple-dark="true" >
-    <input id="html" name="type" type="radio" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10" />
+  <label class="relative flex cursor-pointer items-center rounded-full p-3" for="start" data-ripple-dark="true" >
+    <input value="start" id="start" name="type" type="radio" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10" />
     <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-orange-1 opacity-0 transition-opacity peer-checked:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" >
         <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
@@ -154,8 +154,8 @@
 </div>
 <!--presell-->
 <div class="inline-flex items-center">
-  <label class="relative flex cursor-pointer items-center rounded-full p-3"for="react"data-ripple-dark="true">
-    <input id="react" name="type" type="radio"class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10"/>
+  <label  class="relative flex cursor-pointer items-center rounded-full p-3"for="presell"data-ripple-dark="true">
+    <input value="presell" id="presell" name="type" type="radio"class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10"/>
     <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-orange-1 opacity-0 transition-opacity peer-checked:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg"class="h-3.5 w-3.5"viewBox="0 0 16 16"fill="currentColor">
         <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
@@ -172,7 +172,8 @@
   </div>
   <!--send-->
   <div class=" absolute left-2  bottom-2 font-ybakhfat bg-orange-1 text-white h-11 w-20  rounded-sm flex justify-center items-center cursor-pointer hover:bg-orange-3">
-    <input class="cursor-pointer"  type="submit" value="افزودن">
+    
+    <input  id="send-course" type="submit" value="افزودن">
 
   </div>
 
@@ -226,7 +227,7 @@
 </script>
 <script>
 
-  document.getElementById('file').addEventListener('change', function () {
+  document.querySelector(".file-input").addEventListener('change', function () {
       const fileName = this.value.split('\\').pop();
       document.querySelector('.file-name').textContent = fileName || 'فایلی انتخاب نشده است.';
   });

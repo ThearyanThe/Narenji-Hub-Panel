@@ -1,5 +1,5 @@
 
-import { getToken } from "../../../src/js/func/utils.js";
+import { getToken } from "../func/utils.js"
 
 const insertNotificationHtmlTemplate = (notifications) => {
   const notificationModalListElem = document.querySelector(

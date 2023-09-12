@@ -1,4 +1,8 @@
-import { getToken } from "../../../src/js/func/utils.js";
+
+const getToken = () => {
+  const userInfos = JSON.parse(localStorage.getItem("user"));
+  return userInfos ? userInfos.token : null;
+};
 const getAdminInfos = async () => {
   const res = await fetch(`http://localhost:4000/v1/auth/me`, {
     headers: {
@@ -12,5 +16,5 @@ const getAdminInfos = async () => {
 };
 
 export {
-    getAdminInfos
+    getAdminInfos,getToken
 }

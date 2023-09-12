@@ -1,5 +1,15 @@
-import { getAndShowAllCourses,getCategory } from "./func/Courses.js";
+import { getAndShowAllCourses,prepareCreateCourseForm,createNewCourse } from "./func/Courses.js";
 window.addEventListener("load",()=>{
+  
     getAndShowAllCourses()
-    getCategory()
+    prepareCreateCourseForm()
+    console.log(21);
+ 
+
+})
+const SendCourse=document.querySelector("#send-course")
+SendCourse.addEventListener("click",(event)=>{
+    event.preventDefault()
+createNewCourse()
+
 })
