@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+   /*alpine*/
+   [x-cloak] { display: none !important; }
+
+   @layer base {
+       @font-face {
+           font-family: ybakh;
+           src: url(../../Fonts/YekanBakhRegular.ttf);
+       }
+   
+       @font-face {
+           font-family: ybakhfat;
+           src: url(../../Fonts/YekanBakh-Fat.ttf);
+       }
+   
+       @font-face {
+           font-family: ybakhbold;
+           src: url(../../Fonts/YekanBakh-Bold.ttf);
+       }
+       @font-face {
+         font-family:vazir;
+         src: url(../../Fonts/Vazirmatn-Bold.ttf);
+     } 
+   
+    
+   }
+   td{
+    text-align: center;
+   }
