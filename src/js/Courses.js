@@ -3,13 +3,16 @@ window.addEventListener("load",()=>{
   
     getAndShowAllCourses()
     prepareCreateCourseForm()
-    console.log(21);
+ 
  
 
 })
 const SendCourse=document.querySelector("#send-course")
 SendCourse.addEventListener("click",(event)=>{
-    event.preventDefault()
+    event.preventDefault();
 createNewCourse()
+
+
+  
 
 })

@@ -1020,8 +1020,64 @@ video {
   display: none !important;
 }
 
+/*course-table*/
+
 td{
   text-align: center;
+}
+
+/*sweet-alert*/
+
+.swal-modal{
+  font-family: ybakhbold;
+  background-color: #32334d;
+}
+
+.swal-icon--success{
+  border-width: 0px !important;
+}
+
+.swal-button {
+  box-shadow: none !important;
+}
+
+.swal-icon--success::before,.swal-icon--success::after{
+  background-color: #32334d;
+}
+
+.swal-icon--success__hide-corners{
+  background-color: #32334d;
+}
+
+.swal-icon--success__ring{
+  border: 6px solid green;
+}
+
+.swal-icon--success__line{
+  background-color: green;
+}
+
+.swal-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.swal-title{
+  color: white;
+}
+
+.swal-button{
+  background-color: #fc4801;
+}
+
+.swal-button:hover{
+  background-color: #cf3f06 !important;
+}
+
+/*login-form*/
+
+.login-form {
+  background-color: rgba(255, 255, 255, 0.13);
 }
 
 .selection\:bg-orange-1 *::-moz-selection {

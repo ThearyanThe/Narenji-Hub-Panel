@@ -1,4 +1,5 @@
-import { getToken } from "../func/utils.js";
+import { getToken} from "../func/utils.js";
+import { showSwal } from "../../../../Narenji-Hub-Front/src/js/func/utils.js";
 let categoryID = null;
 let status = "start";
 let courseCover = null
@@ -102,12 +103,36 @@ const createNewCourse = async () => {
     },
     body: formData
   })
+  
   /*empty-inputs */
   courseNameElem.value=""
   coursePriceElem.value=""
   courseDescriptionElem .value=""
   courseShortnameElem.value=""
   courseSupportElem.value=""
-  console.log(res);
+  if (res.status === 201) {
+    window.onbeforeunload =()=>{
+    return    showSwal(
+      "     دوره با موفقیت ثبت شد",
+      "success",
+      "  اوکی",
+      () => { }
+    );
+    }
+ 
+  }
+
+  else if (res.status === 400) {
+    showSwal(
+      "مقادیر نادرست است",
+      "error",
+      "تصحیح اطلاعات",
+      () => { }
+    );
+  }
+
+
+
+  
 };
    export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse}
