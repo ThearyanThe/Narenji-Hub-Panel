@@ -53,7 +53,7 @@
 
 
       <input id="searchinput"
-       class="placeholder:text-white outline-none text-slate-300 focus:border-b-2 h[60px]  focus:border-orange-1 block w-full   rounded-xl  font-ybakhfat p-2  pr-7 z-50"
+       class="placeholder:text-white outline-none text-slate-300 focus:border-b-2 h[60px] bg-gray-3  focus:border-orange-1 block w-full   rounded-xl  font-ybakhfat p-2  pr-7 z-50"
        type="text" placeholder="دنبال چه میگردی مارکو  ">
 
      </div>
@@ -88,54 +88,96 @@
    </div>
    <!--add-courses-->
    <section>
+    <form action="" class="">
     <h1  class="text-orange-2 font-ybakhbold text-lg p-3">  اضافه  کردن دوره</h1>
-    <div class="w-full bg-gray-2 p-2 flex gap-4">
+    <div class="w-full bg-gray-2 p-2 flex gap-4 relative">
       <div class="">
       <!--name-course-->
       <div class="font-ybakh ">
         <h1 class="font-ybakhbold text-slate-400">نام دوره</h1>
-        <input class="placeholder:text-white outline-none focus:border-b-2 focus:border-orange-1 rounded-lg  p-2" type="text" placeholder="نام دوره " id="name-course">
+        <input class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="نام دوره " id="name-course">
       </div>
        <!--price-course-->
        <div class="font-ybakh ">
         <h1 class="font-ybakhbold text-slate-400"> قیمت دوره</h1>
-        <input class="placeholder:text-white outline-none focus:border-b-2 focus:border-orange-1 rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="price-course">
+        <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="price-course">
       </div>
     </div>
     <div class="">
         <!--count-course-->
         <div class="font-ybakh ">
-          <h1 class="font-ybakhbold text-slate-400"> تعداد دوره</h1>
-          <input class="placeholder:text-white outline-none focus:border-b-2 focus:border-orange-1 rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="count-course">
+          <h1 class="font-ybakhbold text-slate-400"> url دوره</h1>
+          <input class="placeholder:text-slate-400 outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3 rounded-lg  p-2" type="text" placeholder="قیمت دوره " id="count-course">
         </div>
           <!--category-course-->
           <div class="font-ybakh ">
             <h1 class="font-ybakhbold text-slate-400"> دسته بندی دوره</h1>
-             <select class="bg-gray-3 w-full p-2 rounded-md" name="" id="category-select">
+             <select class="bg-gray-3 text-slate-400 w-full p-2 rounded-md" name="" id="category-select">
              <!--js-->
               </select>
             
           </div>
     </div>
-    <div class="">
-      <!--image-course-->
-      <div class="font-ybakh ">
-        <h1 class="font-ybakhbold text-slate-400"> عکس دوره</h1>
-        <label for="file" class="file-input-label bg-orange-1 p-5">انتخاب فایل</label>
-        <input type="file" id="file" class="file-input hidden" accept=".pdf, .doc, .docx, .txt">
-
-        <p class="file-name">فایلی انتخاب نشده است.</p>
+      <!--suport-->
+  <div class="font-ybakh ">
+    <h1 class="font-ybakhbold text-slate-400"> پشتیبانی دوره</h1>
+    <input class="placeholder:text-slate-400  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2" type="text" placeholder="پشتیبانی دوره " id="price-course">
+      <!--description-->
+      <div class="font-ybakhbold text-slate-400">
+        <h1>متن</h1>
+        <textarea placeholder="پیام خود را بنویسید"  class="text-area placeholder:text-slate-400 h-[40px] text-slate-400 bg-gray-3  outline-none focus:border-b-2 focus:border-orange-1 block w-full rounded-lg p-3 pr-8 z-20" name="" id="" cols="30" rows="10"></textarea>
       </div>
-   
-        <!--category-course-->
-        <div class="font-ybakh ">
-          <h1 class="font-ybakhbold text-slate-400">  دسته بندی دوره</h1>
-           <select class="bg-gray-3 w-full p-2 rounded-md" name="" id="category-select">
-           <!--js-->
-            </select>
-          
-        </div>
   </div>
+  <div class="">
+    <!--course-image-->
+    <div class="font-ybakh flex flex-col ">
+      <h1 class="font-ybakhbold text-slate-400"> عکس دوره</h1>
+      <label for="file" class="text-white file-name font-ybakhbold bg-orange-1 p-2 py-3 text-xs rounded-lg text-center">انتخاب فایل</label>
+      <input type="file" id="file" class="file-input hidden" accept=".pdf, .doc, .docx, .txt">
+
+      
+    </div>
+<!--course-status-->
+<h1 class="font-ybakhbold text-slate-400"> وضعیت دوره</h1>
+<div class="flex gap-5 ">
+<!--active-->
+<div class="inline-flex items-center">
+  <label class="relative flex cursor-pointer items-center rounded-full p-3" for="html" data-ripple-dark="true" >
+    <input id="html" name="type" type="radio" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10" />
+    <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-orange-1 opacity-0 transition-opacity peer-checked:opacity-100">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor" >
+        <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+      </svg>
+    </div>
+  </label>
+  <label class="mt-px cursor-pointer select-none font-light text-slate-400 font-ybakh" for="html">پیشفروش</label>
+</div>
+<!--presell-->
+<div class="inline-flex items-center">
+  <label class="relative flex cursor-pointer items-center rounded-full p-3"for="react"data-ripple-dark="true">
+    <input id="react" name="type" type="radio"class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-orange-1 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-1 checked:before:bg-orange-1 hover:before:opacity-10"/>
+    <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-orange-1 opacity-0 transition-opacity peer-checked:opacity-100">
+      <svg xmlns="http://www.w3.org/2000/svg"class="h-3.5 w-3.5"viewBox="0 0 16 16"fill="currentColor">
+        <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+      </svg>
+    </div>
+  </label>
+  <label class="mt-px cursor-pointer select-none font-light text-slate-400 font-ybakh" for="react">
+   درحال برگزاری
+  </label>
+</div>
+</div>
+
+
+  </div>
+  <!--send-->
+  <div class=" absolute left-2  bottom-2 font-ybakhfat bg-orange-1 text-white h-11 w-20  rounded-sm flex justify-center items-center cursor-pointer hover:bg-orange-3">
+    <input class="cursor-pointer"  type="submit" value="افزودن">
+
+  </div>
+
+  </div>
+</form>
    </section>
    <!--List courses-->
    <section class="mt-3">
