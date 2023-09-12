@@ -102,6 +102,12 @@ const createNewCourse = async () => {
     },
     body: formData
   })
+  /*empty-inputs */
+  courseNameElem.value=""
+  coursePriceElem.value=""
+  courseDescriptionElem .value=""
+  courseShortnameElem.value=""
+  courseSupportElem.value=""
   console.log(res);
 };
    export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse}
