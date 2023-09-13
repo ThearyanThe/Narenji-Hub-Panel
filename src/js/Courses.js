@@ -9,3 +9,5 @@ SendCourse.addEventListener("click",(event)=>{
     event.preventDefault();
     createNewCourse()
 })
+
+

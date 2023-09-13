@@ -67,6 +67,9 @@
   .swal-button:hover{
     background-color: #cf3f06 !important;
   }
+  .swal-button--cancel{
+    color: white;
+  }
   /*login-form*/
   
   
