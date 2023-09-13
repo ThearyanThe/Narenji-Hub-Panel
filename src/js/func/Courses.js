@@ -9,22 +9,28 @@ const getAndShowAllCourses = async () => {
     const result = await res.json();
   console.log(result);
     const trowWrapper=document.querySelector("#tbody-courses")
+    trowWrapper.innerHTML=""
     let i=0
     result.forEach((course) => {
         i=i+1
         trowWrapper.insertAdjacentHTML("beforeend",`
         <tr class="">
-        <td class="py-2" data-th="Movie Title">${i}</td>
-        <td class="py-2" data-th="Genre">${course.name}</td>
-        <td class="py-2" data-th="Year">${course.price==0?`رایگان`:`${course.price}`}</td>
-        <td class="py-2" data-th="Gross">${course.registers}</td>
-        <td class="py-2" data-th="Gross">${course.support}</td>
-        <td class="py-2" data-th="Gross">${course.categoryID.title}</td>
-        <td class="py-2" data-th="Gross">${course.courseAverageScore}</td>
-        <td class="py-2" data-th="Gross">${course.status=="start"?"درحال برگزاری":"پیش فروش"}</td>
+        <td class="" data-th="Movie Title">${i}</td>
+        <td class="" data-th="Genre">${course.name}</td>
+        <td class="" data-th="Year">${course.price==0?`رایگان`:`${course.price}`}</td>
+        <td class="" data-th="Gross">${course.registers}</td>
+        <td class="" data-th="Gross">${course.support}</td>
+        <td class="" data-th="Gross">${course.categoryID.title}</td>
+        <td class="" data-th="Gross">${course.courseAverageScore}</td>
+        <td class="" data-th="Gross">${course.status=="start"?"درحال برگزاری":"پیش فروش"}</td>
+        <td  data-th="Gross">
+        
+        <button type="button" id="edit-course" class=" w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1">ویرایش</button>
+        </td>
+        <td  data-th="Gross">
+        <button  onclick="removeCourse('${course._id}')" type="button" id="edit-course" class=" w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2">حذف</button>
+        </td>
       </tr>
-        
-        
         `)
     });
     return result
@@ -43,8 +49,6 @@ const prepareCreateCourseForm  = async () => {
   result.forEach((course) => {
       categoryWrapper.insertAdjacentHTML("beforeend",`
       <option class="" value="${course._id}"><li class="">  ${course.title}   </li></option>
-      
-      
       `)
   });
   /*select-categories */
@@ -53,22 +57,17 @@ const prepareCreateCourseForm  = async () => {
     (event) => {categoryID = event.target.value
       console.log(categoryID)
     }
- 
   );
   /*select-status-course */
   courseStatusPresellElem.addEventListener(
     "change",
     (event) => {status = event.target.value
       console.log(status)
-      
-      
     })
   courseStatusStartElem.addEventListener(
     "change",
     (event) => {status = event.target.value
       console.log(status)
-      
-      
     }
    
   );
@@ -133,4 +132,29 @@ if (res.status === 400) {
  
   }
 };
-   export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse}
+const removeCourse = async (courseID) => {
+
+  showSwal(
+    "آیا از حذف دوره اطمینان دارید؟",
+    "warning",
+    ["نه", "آره"],
+    async (result) => {
+      if(result) {
+        const res = await fetch(`http://localhost:4000/v1/courses/${courseID}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`
+          }
+        });
+        if (res.ok) {
+          showSwal("دوره مدنظر با موفقیت حذف شد", "success", "خیلی هم عالی", () => {
+            getAndShowAllCourses();
+          });
+        }
+      }
+    }
+  )
+
+  
+};
+   export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse,removeCourse}
