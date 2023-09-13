@@ -106,10 +106,12 @@ const createNewCourse = async () => {
   })
   
   /*empty-inputs */
-
+  courseNameElem.value=""
+  coursePriceElem.value=""
+  courseDescriptionElem .value=""
+  courseShortnameElem.value=""
+  courseSupportElem.value=""
   /*show-sweetalert */
-
-
 if (res.status === 400) {
     showSwal(
       "مقادیر نادرست است",
@@ -120,15 +122,15 @@ if (res.status === 400) {
   }
   
   else  {
-window.onbeforeunload=()=>{
-
-  return      showSwal(
-    "ثبت نام با موفقیت انجام شد",
-    "success",
-    "ورود به پنل",
-   ()=> { }
-  );
-}
+    window.onbeforeunload =()=>{
+    return      showSwal(
+      "دوره با موفقیت اپلود شد",
+      "success",
+      " اوکی",
+     ()=> { }
+    );
+    }
+ 
   }
 };
    export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse}
