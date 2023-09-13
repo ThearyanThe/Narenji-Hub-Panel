@@ -1,5 +1,5 @@
 import { getToken} from "../func/utils.js";
-import { showSwal } from "../../../../Narenji-Hub-Front/src/js/func/utils.js";
+import { showSwal } from "../../js/func/utils.js";
 let categoryID = null;
 let status = "start";
 let courseCover = null
@@ -20,7 +20,8 @@ const getAndShowAllCourses = async () => {
         <td class="py-2" data-th="Gross">${course.registers}</td>
         <td class="py-2" data-th="Gross">${course.support}</td>
         <td class="py-2" data-th="Gross">${course.categoryID.title}</td>
-        <td class="py-2" data-th="Gross">${course.price}</td>
+        <td class="py-2" data-th="Gross">${course.courseAverageScore}</td>
+        <td class="py-2" data-th="Gross">${course.status=="start"?"درحال برگزاری":"پیش فروش"}</td>
       </tr>
         
         
@@ -105,24 +106,11 @@ const createNewCourse = async () => {
   })
   
   /*empty-inputs */
-  courseNameElem.value=""
-  coursePriceElem.value=""
-  courseDescriptionElem .value=""
-  courseShortnameElem.value=""
-  courseSupportElem.value=""
-  if (res.status === 201) {
-    window.onbeforeunload =()=>{
-    return    showSwal(
-      "     دوره با موفقیت ثبت شد",
-      "success",
-      "  اوکی",
-      () => { }
-    );
-    }
- 
-  }
 
-  else if (res.status === 400) {
+  /*show-sweetalert */
+
+
+if (res.status === 400) {
     showSwal(
       "مقادیر نادرست است",
       "error",
@@ -130,9 +118,17 @@ const createNewCourse = async () => {
       () => { }
     );
   }
-
-
-
   
+  else  {
+window.onbeforeunload=()=>{
+
+  return      showSwal(
+    "ثبت نام با موفقیت انجام شد",
+    "success",
+    "ورود به پنل",
+   ()=> { }
+  );
+}
+  }
 };
    export{getAndShowAllCourses,prepareCreateCourseForm,createNewCourse}
