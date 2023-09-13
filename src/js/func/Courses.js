@@ -1,6 +1,6 @@
 import { getToken} from "../func/utils.js";
 import { showSwal } from "../../js/func/utils.js";
-let categoryID = null;
+let categoryID = "6345cbd132c10de974957632";
 let status = "start";
 let courseCover = null
 const getAndShowAllCourses = async () => {
