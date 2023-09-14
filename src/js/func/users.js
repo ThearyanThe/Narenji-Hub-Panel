@@ -93,4 +93,65 @@ const removeUser = async (userID) => {
       }
     );
   }
-export { getAndShowAllUsers,removeUser,banUser };
+  const createNewUser = async () => {
+    const nameInput = document.querySelector("#name");
+    const usernameInput = document.querySelector("#User-Name");
+    const emailInput = document.querySelector("#Email");
+    const phoneInput = document.querySelector("#phone-number");
+    const passwordInput = document.querySelector("#password");
+  
+    const newUserInfos = {
+      name: nameInput.value.trim(),
+      username: usernameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: phoneInput.value.trim(),
+      password: passwordInput.value.trim(),
+      confirmPassword: passwordInput.value.trim(),
+    };
+  
+    fetch(`http://localhost:4000/v1/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUserInfos),
+    })
+      .then((res) => {
+        if (res.status === 201) {
+          showSwal(
+            "کاربر جدید با موفقیت ایجاد شد",
+            "success",
+            "خیلی هم عالی",
+            (result) => {
+              getAndShowAllUsers()
+            }
+          );
+        } else if (res.status === 409) {
+          showSwal(
+            "نام کاربری یا ایمیل قبلا استفاده شده",
+            "error",
+            "تصحیح اطلاعات",
+            () => {}
+          );
+        } 
+        else if (res.status === 400) {
+            showSwal(
+              "    مقادیر را درست وارد کنید",
+              "error",
+              "تصحیح اطلاعات",
+              () => {}
+            );
+          } 
+        else if (res.status === 403) {
+          showSwal(
+            "متاسفانه این شماره تماس بن شده",
+            "error",
+            "تصحیح اطلاعات",
+            () => {}
+          );
+        }
+        console.log(res);
+        return res.json();
+      })
+  };
+export { getAndShowAllUsers,removeUser,banUser,createNewUser };
