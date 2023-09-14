@@ -710,6 +710,10 @@ video {
   width: 180px;
 }
 
+.w-\[206px\] {
+  width: 206px;
+}
+
 .w-\[24\%\] {
   width: 24%;
 }
@@ -1084,6 +1088,10 @@ td{
 
 .swal-button:hover{
   background-color: #cf3f06 !important;
+}
+
+.swal-button--cancel{
+  color: white;
 }
 
 /*login-form*/
