@@ -1,4 +1,4 @@
-import { getToken } from "./utils.js";
+import { getToken,showSwal } from "./utils.js";
 
 let parentMenuID = undefined;
 
@@ -72,11 +72,27 @@ const createNewMenu = async () => {
     },
     body: JSON.stringify(newMenuInfos),
   });
+  if(res.ok){
+    showSwal(
+      "منو با موفقیت اضافه شد",
+      "success",
+      " اوکی",
+     ()=> {getAndShowAllMenus () }
+    );
+  }
+  else{
+    showSwal(
+      "    مشکلی در اضافه کردن منو پیش اومد",
+      "error",
+      " تصحیح اطلاعات",
+     ()=> { }
+    );
+  }
   /*empty-input-after-send */
 titleInputElem.value=""
 hrefInputElem.value=""
-getAndShowAllMenus ()
-  console.log(res);
+
+
 };
 
 export { getAndShowAllMenus, prepareCreateMenuForm, createNewMenu };
