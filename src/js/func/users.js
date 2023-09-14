@@ -124,6 +124,11 @@ const removeUser = async (userID) => {
             "خیلی هم عالی",
             (result) => {
               getAndShowAllUsers()
+               nameInput.value =""
+               usernameInput.value =""
+               emailInput.value ="" 
+               phoneInput.value ="" 
+             passwordInput.value ="" 
             }
           );
         } else if (res.status === 409) {
