@@ -72,7 +72,10 @@ const createNewMenu = async () => {
     },
     body: JSON.stringify(newMenuInfos),
   });
-
+  /*empty-input-after-send */
+titleInputElem.value=""
+hrefInputElem.value=""
+getAndShowAllMenus ()
   console.log(res);
 };
 
