@@ -7,8 +7,9 @@ const getAndShowAllMenus = async () => {
 
   const res = await fetch(`http://localhost:4000/v1/menus/all`);
   const menus = await res.json();
-
+  menusWrapperElem.innerHTML=""
   menus.forEach((menu, index) => {
+   
     menusWrapperElem.insertAdjacentHTML(
       "beforeend",
       `
@@ -23,7 +24,7 @@ const getAndShowAllMenus = async () => {
               <button type="button" class="w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1">ویرایش</button>
           </td>
           <td>
-              <button type="button" class="w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2">حذف</button>
+              <button onclick="removeMenu('${menu._id}')" type="button" class="w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2">حذف</button>
           </td>
       </tr>
     `
@@ -94,5 +95,31 @@ hrefInputElem.value=""
 
 
 };
-
-export { getAndShowAllMenus, prepareCreateMenuForm, createNewMenu };
+const removeMenu = async (menuID) => {
+  showSwal(
+    "آیا از حذف منو اطمینان دارید؟",
+    "warning",
+    ["نه", "آره"],
+    async (result) => {
+      if (result) {
+        const res = await fetch(`http://localhost:4000/v1/menus/${menuID}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        });
+        if (res.ok) {
+          showSwal(
+            "منوی مورد نظر با موفقیت حذف شد",
+            "success",
+            "خیلی هم عالی",
+            () => {
+              getAndShowAllMenus();
+            }
+          );
+        }
+      }
+    }
+  );
+};
+export { getAndShowAllMenus, prepareCreateMenuForm, createNewMenu,removeMenu };

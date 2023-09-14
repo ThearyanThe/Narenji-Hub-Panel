@@ -1,4 +1,5 @@
-import { createNewMenu, getAndShowAllMenus, prepareCreateMenuForm } from "./func/menues.js";
+import { createNewMenu, getAndShowAllMenus, prepareCreateMenuForm,removeMenu } from "./func/menues.js";
+window.removeMenu=removeMenu
 window.addEventListener("load", () => {
     const MenuesBtn = document.querySelector("#sendMenue-btn")
     getAndShowAllMenus()
