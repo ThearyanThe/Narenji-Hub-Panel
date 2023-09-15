@@ -18,7 +18,7 @@ const getAndShowAllContacts = async () => {
                     <button type='button' onclick='showContactBody(${JSON.stringify(contact.body)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-700 w-full'>مشاهده</button>
                 </td>
                 <td>
-                <button type='button'     onclick='answerToContact(${JSON.stringify(contact.email)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>پاسخ</button>
+                <button type='button'     onclick='answerToContact(${JSON.stringify(contact.email)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>${contact.answer==0?"پاسخ":"پاسخ دادی"}</button>
             </td>
                 <td>
                     <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3 w-full'>ویرایش</button>
@@ -71,7 +71,9 @@ const answerToContact = async (userEmail) => {
             "پاسخ مورد نظر برای کاربر ایمیل شد",
             "success",
             "خیلی هم عالی",
-            () => {}
+            () => {
+                getAndShowAllContacts()
+            }
           );
         }
       }
