@@ -1,4 +1,4 @@
-
+import { showSwal } from "./utils.js"
 const getAndShowAllContacts = async () => {
     const contactsListTableElem = document.querySelector('#tbody-massage')
     contactsListTableElem.innerHTML = ''
@@ -15,7 +15,7 @@ const getAndShowAllContacts = async () => {
                 <td>${contact.phone}</td>
                 <td>${contact.createdAt.slice(0, 10)}</td>
                 <td>
-                    <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>مشاهده</button>
+                    <button type='button' onclick='showContactBody(${JSON.stringify(contact.body)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>مشاهده</button>
                 </td>
                 <td>
                     <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3 w-full'>ویرایش</button>
@@ -30,7 +30,14 @@ const getAndShowAllContacts = async () => {
     console.log(contacts);
 
 }
-
+const showContactBody = (body) => {
+    showSwal(
+        body, 
+        undefined,
+        "مشاهده کردم",
+        () => {}
+    )
+}
 export {
-    getAndShowAllContacts
+    getAndShowAllContacts,showContactBody
 }
