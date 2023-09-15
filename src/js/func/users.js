@@ -33,6 +33,10 @@ console.log(users);
                     <button type='button' onclick="banUser('${user._id}')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3'>بن</button>
                 </td>
             </tr>
+            </tr>
+            <tr class="divider-row">
+            <td  colspan="9"><hr class="border-gray-3"></td>
+        </tr>
         `
     );
   });

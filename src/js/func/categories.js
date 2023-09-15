@@ -25,6 +25,10 @@ const getAndShowAllCategories = async () => {
                     
                   </td>
               </tr>
+              </tr>
+              <tr class="divider-row">
+              <td  colspan="9"><hr class="border-gray-3"></td>
+          </tr>
           `
       );
     });

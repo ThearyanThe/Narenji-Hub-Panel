@@ -31,6 +31,10 @@ const getAndShowAllCourses = async () => {
         <button  onclick="removeCourse('${course._id}')" type="button" id="edit-course" class=" w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2">حذف</button>
         </td>
       </tr>
+      </tr>
+      <tr class="divider-row">
+      <td  colspan="9"><hr class="border-gray-3"></td>
+  </tr>
         `)
     });
     return result

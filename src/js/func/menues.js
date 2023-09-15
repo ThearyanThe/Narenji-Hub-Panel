@@ -27,6 +27,10 @@ const getAndShowAllMenus = async () => {
               <button onclick="removeMenu('${menu._id}')" type="button" class="w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2">حذف</button>
           </td>
       </tr>
+      </tr>
+      <tr class="divider-row">
+      <td  colspan="9"><hr class="border-gray-3"></td>
+  </tr>
     `
     );
   });
