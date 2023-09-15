@@ -155,7 +155,7 @@ const removeUser = async (userID) => {
             () => {}
           );
         }
-        console.log(res);
+       
         return res.json();
       })
   };
