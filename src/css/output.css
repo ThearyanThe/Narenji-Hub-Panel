@@ -730,6 +730,34 @@ video {
   width: 100%;
 }
 
+.w-\[\] {
+  width: ;
+}
+
+.w-\[34\] {
+  width: 34;
+}
+
+.w-\[34\%\] {
+  width: 34%;
+}
+
+.w-\[2\%\] {
+  width: 2%;
+}
+
+.w-\[28\%\] {
+  width: 28%;
+}
+
+.w-\[\%\] {
+  width: %;
+}
+
+.w-\[32\%\] {
+  width: 32%;
+}
+
 .border-separate {
   border-collapse: separate;
 }
