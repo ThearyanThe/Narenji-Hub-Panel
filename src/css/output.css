@@ -562,12 +562,20 @@ video {
   pointer-events: none;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .bottom-2 {
@@ -588,6 +596,30 @@ video {
 
 .top-\[5px\] {
   top: 5px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.top-6 {
+  top: 1.5rem;
 }
 
 .z-20 {
@@ -678,6 +710,11 @@ video {
   height: 100vh;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -756,6 +793,18 @@ video {
 
 .w-\[32\%\] {
   width: 32%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-\[245px\] {
+  width: 245px;
+}
+
+.w-\[246px\] {
+  width: 246px;
 }
 
 .border-separate {
