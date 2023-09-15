@@ -1,4 +1,4 @@
-import { showSwal } from "./utils.js"
+import { showSwal,getToken } from "./utils.js"
 const getAndShowAllContacts = async () => {
     const contactsListTableElem = document.querySelector('#tbody-massage')
     contactsListTableElem.innerHTML = ''
@@ -18,7 +18,7 @@ const getAndShowAllContacts = async () => {
                     <button type='button' onclick='showContactBody(${JSON.stringify(contact.body)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-700 w-full'>مشاهده</button>
                 </td>
                 <td>
-                <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>پاسخ</button>
+                <button type='button'     onclick='answerToContact(${JSON.stringify(contact.email)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>پاسخ</button>
             </td>
                 <td>
                     <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3 w-full'>ویرایش</button>
@@ -45,6 +45,38 @@ const showContactBody = (body) => {
         () => {}
     )
 }
+const answerToContact = async (userEmail) => {
+    swal({
+      title: "متن پاسخ را تایپ کنید:",
+      content: "input",
+      button: "ثبت پاسخ",
+    }).then(async (result) => {
+      if (result) {
+        const contactAnswerInfos = {
+          email: userEmail,
+          answer: result,
+        };
+  
+        const res = await fetch(`http://localhost:4000/v1/contact/answer`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactAnswerInfos),
+        });
+  
+        if (res.ok) {
+          showSwal(
+            "پاسخ مورد نظر برای کاربر ایمیل شد",
+            "success",
+            "خیلی هم عالی",
+            () => {}
+          );
+        }
+      }
+    });
+  };
 export {
-    getAndShowAllContacts,showContactBody
+    getAndShowAllContacts,showContactBody,answerToContact
 }
