@@ -21,10 +21,7 @@ const getAndShowAllContacts = async () => {
                 <button type='button'     onclick='answerToContact(${JSON.stringify(contact.email)})' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1 w-full'>${contact.answer==0?"پاسخ":"پاسخ دادی"}</button>
             </td>
                 <td>
-                    <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3 w-full'>ویرایش</button>
-                </td>
-                <td>
-                    <button type='button' class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2 w-full'>حذف</button>
+                    <button type='button'  onclick=' removeContact(${JSON.stringify(contact._id)})'  class=' py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2 w-full'>حذف</button>
                 </td>
             </tr>
             <tr class="divider-row">
@@ -79,6 +76,36 @@ const answerToContact = async (userEmail) => {
       }
     });
   };
+  const removeContact = async (contactID) => {
+    showSwal(
+      "آیا از حذف پیغام اطمینان دارید؟",
+      "warning",
+      ["نه", "آره"],
+      async (result) => {
+        if (result) {
+          const res = await fetch(
+            `http://localhost:4000/v1/contact/${contactID}`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          );
+          if (res.ok) {
+            showSwal(
+              "پیغام مورد نظر با موفقیت حذف شد",
+              "success",
+              "خیلی هم عالی",
+              () => {
+                getAndShowAllContacts();
+              }
+            );
+          }
+        }
+      }
+    );
+  };
 export {
-    getAndShowAllContacts,showContactBody,answerToContact
+    getAndShowAllContacts,showContactBody,answerToContact,removeContact
 }
