@@ -610,10 +610,6 @@ video {
   margin-bottom: 0.25rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -720,6 +716,10 @@ video {
 
 .w-\[206px\] {
   width: 206px;
+}
+
+.w-\[210px\] {
+  width: 210px;
 }
 
 .w-\[24\%\] {
@@ -1136,7 +1136,6 @@ td{
 /*Ckeditor*/
 
 .ck-editor__top{
-  margin-top: 5px !important;
 }
 
 .ck-toolbar{
