@@ -94,7 +94,7 @@ const getAndShowAllSessions = async () => {
                     <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>ویرایش</button>
                 </td>
                 <td>
-                    <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2'>حذف</button>
+                    <button type='button' onclick=removeSession('${session._id}') class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2'>حذف</button>
                 </td>
             </tr>
         `)
@@ -102,9 +102,40 @@ const getAndShowAllSessions = async () => {
 
     console.log(sessions);
 }
-
+const removeSession = async (sessionID) => {
+    showSwal(
+      "آیا از حذف جلسه اطمینان دارید؟",
+      "warning",
+      ["نه", "آره"],
+      async (result) => {
+        if (result) {
+          const res = await fetch(
+            `http://localhost:4000/v1/courses/sessions/${sessionID}`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          );
+  
+          if (res.ok) {
+            showSwal(
+              "جلسه مورد نظر با موفقیت حذف شد",
+              "success",
+              "خیلی هم عالی",
+              () => {
+                getAndShowAllSessions();
+              }
+            );
+          }
+        }
+      }
+    );
+  };
 export {
     getAndShowAllSessions,
     prepareCreateNewSessionForm,
-    createSession
+    createSession,
+    removeSession
 }

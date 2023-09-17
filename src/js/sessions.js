@@ -1,4 +1,5 @@
-import { getAndShowAllSessions,prepareCreateNewSessionForm,createSession } from "./func/sessions.js";
+import { getAndShowAllSessions,prepareCreateNewSessionForm,createSession,removeSession } from "./func/sessions.js";
+window.removeSession=removeSession
 const SendSessions=document.querySelector("#SendSessions")
 window.addEventListener("load",()=>{
     getAndShowAllSessions()
