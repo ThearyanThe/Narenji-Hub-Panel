@@ -606,16 +606,12 @@ video {
   z-index: 50;
 }
 
-.col-span-1 {
-  grid-column: span 1 / span 1;
-}
-
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .mt-3 {
@@ -1135,6 +1131,40 @@ td{
   border: none;
   border-radius: 10px;
   color: white;
+}
+
+/*Ckeditor*/
+
+.ck-editor__top{
+  margin-top: 5px !important;
+}
+
+.ck-toolbar{
+  background-color: #32334d !important;
+  border-color: #28293d !important;
+}
+
+.ck.ck-editor__main > .ck-editor__editable{
+  background-color: #32334d !important;
+  border-color: #28293d !important;
+  border-radius: 10px;
+}
+
+.ck-icon{
+  color: #fc4801 !important;
+}
+
+.ck-toolbar__separator{
+  background-color: #28293d !important;
+}
+
+.ck-button__label{
+  color: #fc4801 !important;
+}
+
+.ck-content{
+  color: aliceblue;
+  font-family: ybakhbold;
 }
 
 .selection\:bg-orange-1 *::-moz-selection {
