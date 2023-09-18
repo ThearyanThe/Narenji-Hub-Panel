@@ -20,7 +20,7 @@ console.log(comments);
                     <button type='button'  onclick="showCommentBody('${ comment.body }')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3'>مشاهده</button>
                 </td>
                 <td>
-                    <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>پاسخ</button>
+                    <button type='button'   onclick="answerToComment('${ comment._id }')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>پاسخ</button>
                 </td>
                 <td>
                     <button type='button'  onclick="acceptComment('${ comment._id}')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>تایید</button>
@@ -29,7 +29,7 @@ console.log(comments);
                     <button type='button'  onclick="rejectComment('${ comment._id }')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2'>رد</button>
                 </td>
                 <td>
-                    <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3'>حذف</button>
+                    <button type='button'  onclick="removeComment('${ comment._id}')"  class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3'>حذف</button>
                 </td>
             </tr>
             <tr class="divider-row">
@@ -111,7 +111,66 @@ const acceptComment = async (commentID) => {
         );
   
   };
+  const answerToComment = async (commentID) => {
+    swal({
+      title: "متن پاسخ را وارد نمایید:",
+      content: "input",
+      buttons: "ثبت پاسخ",
+    }).then((body) => {
+      if (body) {
+        fetch(`http://localhost:4000/v1/comments/answer/${commentID}`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ body }),
+        }).then((res) => {
+          if (res.ok) {
+            showSwal(
+              "پاسخ مورد نظر با موفقیت ثبت شد",
+              "success",
+              "خیلی هم عالی",
+              () => {
+                getAndShowAllComments();
+              }
+            );
+          }
+        });
+      }
+    });
+  };
+  const removeComment = async (commentID) => {
+    showSwal(
+      "آیا از حذف کامنت اطمینان دارید؟",
+      "warning",
+      ["نه", "آره"],
+      async (result) => {
+        if (result) {
+          const res = await fetch(
+            `http://localhost:4000/v1/comments/${commentID}`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          );
   
+          if (res.ok) {
+            showSwal(
+              "کامنت مورد نظر با موفقیت حذف شد",
+              "success",
+              "خیلی هم عالی",
+              () => {
+                getAndShowAllComments();
+              }
+            );
+          }
+        }
+      }
+    );
+  };
 export {
-    getAndShowAllComments,showCommentBody,acceptComment,rejectComment
+    getAndShowAllComments,showCommentBody,acceptComment,rejectComment,removeComment,answerToComment
 }
