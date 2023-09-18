@@ -1,4 +1,4 @@
-import { showSwal } from "./utils.js"
+import { showSwal,getToken } from "./utils.js"
 const getAndShowAllComments = async () => {
     const commentsListTableElem = document.querySelector('#tbody-comments')
     commentsListTableElem.innerHTML = ''
@@ -23,10 +23,10 @@ console.log(comments);
                     <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>پاسخ</button>
                 </td>
                 <td>
-                    <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>تایید</button>
+                    <button type='button'  onclick="acceptComment('${ comment._id}')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-1'>تایید</button>
                 </td>
                 <td>
-                    <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2'>رد</button>
+                    <button type='button'  onclick="rejectComment('${ comment._id }')" class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-2'>رد</button>
                 </td>
                 <td>
                     <button type='button' class='w-full py-1 cursor-pointer  rounded-sm text-slate-100 bg-orange-3'>حذف</button>
@@ -48,6 +48,70 @@ const showCommentBody = (commentBody) => {
         () => {}
     )
 }
+const acceptComment = async (commentID) => {
+    showSwal(
+      "آیا از تایید کامنت اطمینان دارید؟",
+      "warning",
+      ["نه", "آره"],
+      async (result) => {
+        if (result) {
+          const res = await fetch(
+            `http://localhost:4000/v1/comments/accept/${commentID}`,
+            {
+              method: "PUT",
+              headers: {
+                Authorization: `Bearer ${getToken()}`,
+              },
+            }
+          );
+          if (res.ok) {
+            showSwal(
+              "کامنت مورد نظر با موفقیت تایید شد",
+              "success",
+              "خیلی هم عالی",
+              () => {
+                getAndShowAllComments();
+              }
+            );
+          }
+        }
+      }
+    );
+  };
+  
+  const rejectComment = async (commentID) => {
+  
+      showSwal(
+          "آیا از رد کامنت اطمینان دارید؟",
+          "warning",
+          ["نه", "آره"],
+          async (result) => {
+            if (result) {
+              const res = await fetch(
+                `http://localhost:4000/v1/comments/reject/${commentID}`,
+                {
+                  method: "PUT",
+                  headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                  },
+                }
+              );
+              if (res.ok) {
+                showSwal(
+                  "کامنت مورد نظر با موفقیت رد شد",
+                  "success",
+                  "خیلی هم عالی",
+                  () => {
+                    getAndShowAllComments();
+                  }
+                );
+              }
+            }
+          }
+        );
+  
+  };
+  
 export {
-    getAndShowAllComments,showCommentBody
+    getAndShowAllComments,showCommentBody,acceptComment,rejectComment
 }
