@@ -50,6 +50,7 @@
         <a href="" class="py-2">
           <li class="pr-7"> تیکت ها</li>
         </a>
+          <li  id="logout"  class="pr-7 cursor-alias">  خروج</li>
     </ul>
    </div>
   <!--main-->
@@ -136,14 +137,14 @@
         <h1 class="font-ybakhbold text-slate-400"> ایمیل </h1>
         <input
          class="placeholder:text-slate-400 text-slate-300  outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3 rounded-lg  p-2"
-         type="email" placeholder="Email  " id="Email">
+         type="email" placeholder="Email  " id="Email-Panel">
        </div>
        <!--user-password-->
        <div class="font-ybakh ">
         <h1 class="font-ybakhbold text-slate-400"> رمز عبور</h1>
         <input
          class="placeholder:text-slate-400 text-slate-300   outline-none focus:border-b-2 focus:border-orange-1 bg-gray-3  rounded-lg  p-2"
-         type="password" placeholder=" رمز عبور کاربر" id="password">
+         type="password" placeholder=" رمز عبور کاربر" id="password-Panel">
 
        </div>
       <!--User-phone-->
@@ -206,6 +207,7 @@
 <script src="../../vandor/alpine/alpine.js"></script>
 <script src="../js/shared.js" type="module"></script>
 <script src="../../vandor/sweetalert/sweetalert.js"></script>
+<script src="../js/logout.js" type="module"></script>
 <script>
  import Alpine from 'alpinejs'
 

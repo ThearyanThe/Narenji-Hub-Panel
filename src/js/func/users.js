@@ -100,9 +100,9 @@ const removeUser = async (userID) => {
   const createNewUser = async () => {
     const nameInput = document.querySelector("#name");
     const usernameInput = document.querySelector("#User-Name");
-    const emailInput = document.querySelector("#Email");
+    const emailInput = document.querySelector("#Email-Panel");
     const phoneInput = document.querySelector("#phone-number");
-    const passwordInput = document.querySelector("#password");
+    const passwordInput = document.querySelector("#password-Panel");
   
     const newUserInfos = {
       name: nameInput.value.trim(),
